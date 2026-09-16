@@ -1,6 +1,5 @@
 ﻿using Gestion_de_turnos.Models;
 using Gestion_de_turnos.Services;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gestion_de_turnos.Controllers
@@ -15,7 +14,7 @@ namespace Gestion_de_turnos.Controllers
     public class ClienteCotroller : ControllerBase
     {
 
-        //Estoy leyendo la clase ClienteService
+        //Estoy inicializando(campo) con la clase ClienteService
         private readonly ClienteService _clienteServicie;
 
         //creo un constructor para utilizar a clienteService
@@ -48,11 +47,11 @@ namespace Gestion_de_turnos.Controllers
             if (clienteActualizado == null) { return Ok(clienteActualizado); }
             return NotFound();
         }
-
+        
         [HttpPost]
 
         public IActionResult CrearCliente(Cliente cliente) {
-
+            // solo crear al cliente
             _clienteServicie.CrearCliente(cliente);
 
             return Ok(cliente);
@@ -60,6 +59,8 @@ namespace Gestion_de_turnos.Controllers
         [HttpDelete]
 
         public IActionResult DeleteCliente(int id) {
+
+            // lo guardo en bool para que me retorne si se hizo o no
             bool eliminado =_clienteServicie.EliminarCliente(id);
 
             if (eliminado == true) { return Ok(); }
