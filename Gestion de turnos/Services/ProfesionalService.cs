@@ -26,7 +26,7 @@ namespace Gestion_de_turnos.Services
             //busca el id en la lista
             List<Profesional>  lista =  ListaProfesional();
 
-            Profesional profesional= lista.Find(profesional => profesional.getLegajo() == legajo);
+            Profesional? profesional= lista.Find(profesional => profesional.getLegajo() == legajo);
 
             if (profesional == null) { return null; }
             
@@ -37,7 +37,7 @@ namespace Gestion_de_turnos.Services
         public Profesional? ActualizarProfesional(int legajo , Profesional nuevoProfesional) {
             List<Profesional> lista = ListaProfesional();
 
-            Profesional profesional = lista.Find( profesional => profesional.getLegajo() == legajo);
+            Profesional? profesional = lista.Find( profesional => profesional.getLegajo() == legajo);
             
             if (profesional == null) { return null; }
             
@@ -62,7 +62,7 @@ namespace Gestion_de_turnos.Services
         {
             List<Profesional> lista = ListaProfesional();
 
-            Profesional profesional = lista.Find(profesional => profesional.getLegajo() == legajo);
+            Profesional? profesional = lista.Find(profesional => profesional.getLegajo() == legajo);
             if (profesional == null) { return false; }
                    
             _context.Profesional.Remove(profesional);

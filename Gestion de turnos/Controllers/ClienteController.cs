@@ -11,14 +11,14 @@ namespace Gestion_de_turnos.Controllers
     [Route("api/[controller]")]
 
     //se hace una herancia para poder utilizar los http
-    public class ClienteCotroller : ControllerBase
+    public class ClienteController : ControllerBase
     {
 
         //Estoy inicializando(campo) con la clase ClienteService
         private readonly ClienteService _clienteServicie;
 
         //creo un constructor para utilizar a clienteService
-        public ClienteCotroller(ClienteService clienteService) {
+        public ClienteController(ClienteService clienteService) {
             _clienteServicie = clienteService;
 
         }

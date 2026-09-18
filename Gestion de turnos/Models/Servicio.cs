@@ -15,9 +15,13 @@
         }
 
         public string getNombre() {  return nombre; }
+        public void SetNombre(string nombre) { this.nombre = nombre; }
         public int getId() { return id; }
+        public void SetId(int id) {  this.id = id; }
         public decimal getPrecio() { return precio; }
+        public void SetPrecio(decimal precio) {  this.precio = precio; }
         public  int getDuracion() { return duracion; }
+        public void SetDuracion(int duracion) {  this.duracion = duracion;}
 
     }
 }
