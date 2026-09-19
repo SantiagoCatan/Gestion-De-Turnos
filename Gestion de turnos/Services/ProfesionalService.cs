@@ -26,7 +26,7 @@ namespace Gestion_de_turnos.Services
             //busca el id en la lista
             List<Profesional>  lista =  ListaProfesional();
 
-            Profesional? profesional= lista.Find(profesional => profesional.getLegajo() == legajo);
+            Profesional? profesional= lista.Find(profesional => profesional.Legajo == legajo);
 
             if (profesional == null) { return null; }
             
@@ -37,16 +37,16 @@ namespace Gestion_de_turnos.Services
         public Profesional? ActualizarProfesional(int legajo , Profesional nuevoProfesional) {
             List<Profesional> lista = ListaProfesional();
 
-            Profesional? profesional = lista.Find( profesional => profesional.getLegajo() == legajo);
+            Profesional? profesional = lista.Find( profesional => profesional.Legajo == legajo);
             
             if (profesional == null) { return null; }
-            
-                    profesional.setLegajo(nuevoProfesional.getLegajo());
-                    profesional.setNombre(nuevoProfesional.getNombre());
-                    profesional.setApellido(nuevoProfesional.getApellido());
-                    profesional.setProfesion(nuevoProfesional.getProfesion());
 
-                    _context.SaveChanges();
+                profesional.Legajo = nuevoProfesional.Legajo;
+                profesional.Nombre = nuevoProfesional.Nombre;
+                profesional.Apellido = nuevoProfesional.Apellido;
+                profesional.Profesion = nuevoProfesional.Profesion;
+                    
+                _context.SaveChanges();
                 return profesional;
             }
 
@@ -62,7 +62,7 @@ namespace Gestion_de_turnos.Services
         {
             List<Profesional> lista = ListaProfesional();
 
-            Profesional? profesional = lista.Find(profesional => profesional.getLegajo() == legajo);
+            Profesional? profesional = lista.Find(profesional => profesional.Legajo == legajo);
             if (profesional == null) { return false; }
                    
             _context.Profesional.Remove(profesional);

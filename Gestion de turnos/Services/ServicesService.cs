@@ -26,7 +26,7 @@ namespace Gestion_de_turnos.Services
                 //traigo la lista de Servicios
             List<Servicio> lista = GetListServicie();
            //Recorro la lista y si encuentro que se guarde en servicio el objeto , y si no que sea null
-            Servicio? servicio = lista.Find(servicio => servicio.getId() == id);
+            Servicio? servicio = lista.Find(servicio => servicio.Id == id);
 
             //en el caso de que me traiga null , si no lo es que me retorne el Servicio
             if (servicio == null) { return null; }
@@ -35,14 +35,14 @@ namespace Gestion_de_turnos.Services
         //PutId
         public Servicio PutServicio(int id  , Servicio servicio) {
             List<Servicio> lista = _context.Servicios.ToList();
-            Servicio? servicioActualizado = lista.Find(Servicio => servicio.getId() == id);
+            Servicio? servicioActualizado = lista.Find(Servicio => servicio.Id == id);
             
             if (servicioActualizado != null) {
-                servicioActualizado.SetId(servicio.getId());
-                servicioActualizado.SetNombre(servicio.getNombre());
-                servicioActualizado.SetDuracion(servicio.getDuracion());
-                servicioActualizado.SetPrecio(servicio.getPrecio());
 
+                servicio.Id = servicioActualizado.Id;
+                servicio.Nombre = servicioActualizado.Nombre;
+                servicio.Duracion = servicioActualizado.Duracion;
+                servicio.Precio = servicioActualizado.Precio;
                 _context.SaveChanges();
 
                 return servicioActualizado;
@@ -56,7 +56,7 @@ namespace Gestion_de_turnos.Services
         public bool DeleteId(int id) {
             List<Servicio> lista = _context.Servicios.ToList();
 
-            Servicio? servicio = lista.Find(Servicio => Servicio.getId() == id);
+            Servicio? servicio = lista.Find(Servicio => Servicio.Id == id);
             
             if(servicio != null) {
                 _context.Servicios.Remove(servicio);

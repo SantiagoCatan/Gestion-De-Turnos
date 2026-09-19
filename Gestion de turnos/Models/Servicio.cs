@@ -7,25 +7,15 @@ namespace Gestion_de_turnos.Models
         public int Id { get; set; }
         public Servicio() { }
         //Servicios que cumple dicho lugar
-        private string nombre;
-        private int duracion;
-        private decimal precio;
+        public string Nombre { get; set; } = string.Empty;
+        public int Duracion { get; set; } = 0;
+        public decimal Precio { get; set; } = 0;
 
-        public Servicio(string nombre , int Id ,int duracion,decimal precio) { 
-                this.nombre = nombre;
+        public Servicio(string Nombre , int Id ,int Duracion,decimal Precio) { 
+                this.Nombre = Nombre;
                 this.Id = Id;
-                this.duracion = duracion;
-                this.precio = precio;
+                this.Duracion = Duracion;
+                this.Precio = Precio;
         }
-
-        public string getNombre() {  return nombre; }
-        public void SetNombre(string nombre) { this.nombre = nombre; }
-        public int getId() { return Id; }
-        public void SetId(int id) {  this.Id = Id; }
-        public decimal getPrecio() { return precio; }
-        public void SetPrecio(decimal precio) {  this.precio = precio; }
-        public  int getDuracion() { return duracion; }
-        public void SetDuracion(int duracion) {  this.duracion = duracion;}
-
     }
 }

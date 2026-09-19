@@ -22,6 +22,7 @@ namespace Gestion_de_turnos.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cliente>().ToTable("Cliente");
+            modelBuilder.Entity<Servicio>().ToTable("Servicio");
         }
     }
 }
