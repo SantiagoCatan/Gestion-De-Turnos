@@ -47,7 +47,7 @@ namespace Gestion_de_turnos.Controllers
             if (clienteActualizado == null) { return Ok(clienteActualizado); }
             return NotFound();
         }
-        
+
         [HttpPost]
 
         public IActionResult CrearCliente(Cliente cliente) {

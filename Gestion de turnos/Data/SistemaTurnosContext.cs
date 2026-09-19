@@ -18,5 +18,10 @@ namespace Gestion_de_turnos.Data
             Servicios{ get; set; }
         public DbSet<Turno>
             Turno{ get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>().ToTable("Cliente");
+        }
     }
 }

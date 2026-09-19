@@ -20,29 +20,31 @@ namespace Gestion_de_turnos.Services
             
             foreach (Cliente cliente in lista) {
             
-                if (cliente.getId() == id) { return cliente; }
+                if (cliente.Id == id) { return cliente; }
                }
             return null;
         }
         //Agrega el cliente 
 
         public void CrearCliente(Cliente cliente) { 
+
             _context.Clientes.Add(cliente);
+
             _context.SaveChanges();
         }
         //modificia un cliente existente
         public Cliente? ModificarClienteId(int id,Cliente nuevosDatos) {
             List<Cliente> lista = _context.Clientes.ToList();
             
-            foreach (Cliente cliente in lista) { if (cliente.getId() == id) {
+            foreach (Cliente cliente in lista) { if (cliente.Id == id) {
                     
                     //hago la modificacion del cliente
-                    cliente.setNombre(nuevosDatos.getNombre());
-                    cliente.setApellido(nuevosDatos.getApellido());
-                    cliente.setEdad(nuevosDatos.getEdad());
-                    cliente.setDni(nuevosDatos.getDni());
-                    cliente.setId(cliente.getId());
-                    cliente.setSexo(nuevosDatos.getSexo());
+                    cliente.Id = nuevosDatos.Id;
+                    cliente.Nombre = nuevosDatos.Nombre;
+                    cliente.Apellido = nuevosDatos.Apellido;
+                    cliente.Dni = nuevosDatos.Dni;
+                    cliente.Sexo = nuevosDatos. Sexo;
+                    cliente.Edad = nuevosDatos.Edad;
 
                     _context.SaveChanges();  
                 }
@@ -52,7 +54,7 @@ namespace Gestion_de_turnos.Services
         public bool EliminarCliente(int id) {
             List<Cliente> lista = _context.Clientes.ToList();
             
-            foreach (Cliente cliente in lista ) { if (cliente.getId() == id) {
+            foreach (Cliente cliente in lista ) { if (cliente.Id == id) {
                     //si encuentra lo elimina y retorna true
                     _context.Clientes.Remove(cliente);
                     _context.SaveChanges();

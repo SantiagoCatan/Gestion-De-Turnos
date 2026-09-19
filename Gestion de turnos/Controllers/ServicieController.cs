@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gestion_de_turnos.Controllers
 {
+
+
     [ApiController]
-    [Route("[api/Controller]")]
+    [Route("api/[controller]")]
     public class ServicieController : ControllerBase
     {
         private readonly ServicesService _services;
@@ -17,25 +19,27 @@ namespace Gestion_de_turnos.Controllers
         //CRUD 
 
         //GerId
-        [HttpGet ("{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetServicie(int id)
         {
             Servicio? servicio = _services.GetServicio(id);
 
             if (servicio == null) { return NotFound(); }
             return Ok(servicio);
-        } 
+        }
 
         //POST
+        [HttpPost("{serivicio}")]
         public IActionResult PostServicie(Servicio servicio) {
             _services.AddServicio(servicio);
-            
+
             return Ok(servicio);
         }
 
         //PUT
-        public IActionResult PutServicie(int id , Servicio servicio) {
-            Servicio? actualizadoServicio = _services.PutServicio(id , servicio);
+        [HttpPut("{id , servicio}")]
+        public IActionResult PutServicie(int id, Servicio servicio) {
+            Servicio? actualizadoServicio = _services.PutServicio(id, servicio);
 
             if (actualizadoServicio != null) { return NotFound(); }
 
@@ -43,6 +47,7 @@ namespace Gestion_de_turnos.Controllers
         }
 
         //DELETE
+        [HttpDelete("{id}")]
         public IActionResult DeleteServicio(int id)
         {
             bool eleminar = _services.DeleteId(id);
