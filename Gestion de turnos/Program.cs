@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<ProfesionalService>();
 builder.Services.AddScoped<ServicesService>();
+builder.Services.AddScoped<TurnoService>();
 
 var app = builder.Build();
 

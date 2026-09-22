@@ -4,33 +4,31 @@ namespace Gestion_de_turnos.Models
 {
     public class Turno
     {
-        public Turno() { }
         [Key]
         public int Id{ get; set;}
         
-        private DateTime fecha;
-        private string estados,lugar;
-        private Cliente cliente;
-        private Profesional profesional;
+        public DateTime Fecha { set; get; }
+        public string Estados { set; get; } = "Pendiente";
+        public string Lugar { set; get; } = string.Empty;
+        public Cliente? Cliente { set; get; } = null;
+        public Profesional? Profesional { set; get; } = null;
+        public Servicio? Servicio { set; get; } = null;
 
-        private Servicio servicio;
-        public Turno(int Id, DateTime fecha, string estados,string lugar, Cliente cliente, Profesional profesional,Servicio servicio) {
+        //Por el framework entity ,para utilizar los objetos tengoque traer y declarar las claves foreaneas de los objetos
+        public int ClienteId { set; get; }
+        public int ProfesionalLegajo {  set; get; }
+        public int ServicioId { set; get; }
+        
+        public Turno() { }
+        public Turno(int Id, DateTime Fecha, string Estados,string Lugar, Cliente Cliente, Profesional Profesional,Servicio Servicio) {
                 this.Id = Id;
-                this.fecha = fecha;
-                this.estados = estados;
-                this.lugar = lugar;
-                this.cliente = cliente;
-                this.profesional = profesional;
-                this.servicio = servicio;
+                this.Fecha = Fecha;
+                this.Estados = Estados;
+                this.Lugar = Lugar;
+                this.Cliente = Cliente;
+                this.Profesional = Profesional;
+                this.Servicio = Servicio;
         }
-    
-        public int getId() { return Id; }
-        public DateTime getFecha() { return fecha; }
-        public string getEstados() { return estados; }
-        public string getLugar() { return lugar; }
-        public Cliente getCliente() { return cliente; }
-        public Profesional GetProfesional() { return profesional; }
-        public Servicio GetServicio() { return servicio; }
     }
 
 }
