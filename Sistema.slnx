@@ -1,3 +1,7 @@
 <Solution>
   <Project Path="Gestion de turnos/Gestion de turnos.csproj" />
+  <Project Path="Web_Gestion_de_Turnos/web_gestion_de_turnos.esproj">
+    <Build />
+    <Deploy />
+  </Project>
 </Solution>
